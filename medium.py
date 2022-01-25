@@ -19,8 +19,17 @@ class Medium:
         self.message.destroy()
         if count > 0:
             self.top_window2.after(1000, self.start_game, count - 1)
-        elif count == 0:
-            self.last_score.config(text=f"Your score is {med_score}")
+        elif count == 0 and med_score > 10:
+            self.last_score.config(text=f"Your score is {med_score}Great job!!")
+            self.text_entry.config(state=DISABLED)
+        elif count == 0 and 5 < med_score < 10:
+            self.last_score.config(text=f"Your score is {med_score}.Good!")
+            self.text_entry.config(state=DISABLED)
+        elif count == 0 and 0 < med_score < 5:
+            self.last_score.config(text=f"Your score is {med_score}.Average :)")
+            self.text_entry.config(state=DISABLED)
+        elif count == 0 and med_score == 0:
+            self.last_score.config(text=f"Your score is {med_score}.Try again!")
             self.text_entry.config(state=DISABLED)
 
     def update_score(self, points):

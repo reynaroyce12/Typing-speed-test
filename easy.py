@@ -19,8 +19,17 @@ class Easy:
         self.message.destroy()
         if count > 0:
             self.top_window1.after(1000, self.start_game, count - 1)
-        elif count == 0:
-            self.last_score.config(text=f"Your score is {score}")
+        elif count == 0 and score > 30:
+            self.last_score.config(text=f"Your score is {score}.Great job!!")
+            self.text_entry.config(state=DISABLED)
+        elif count == 0 and 20 < score < 30:
+            self.last_score.config(text=f"Your score is {score}.Good!")
+            self.text_entry.config(state=DISABLED)
+        elif count == 0 and 10 < score < 20:
+            self.last_score.config(text=f"Your score is {score}. Average :)")
+            self.text_entry.config(state=DISABLED)
+        elif count == 0 and score == 0 or score < 10:
+            self.last_score.config(text=f"Your score is {score}.Try again!")
             self.text_entry.config(state=DISABLED)
 
     def update_score(self, points):

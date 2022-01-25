@@ -19,8 +19,14 @@ class Hard:
         self.message.destroy()
         if count > 0:
             self.top_window3.after(1000, self.start_game, count - 1)
-        elif count == 0:
-            self.last_score.config(text=f"Your score is {hard_score}")
+        elif count == 0 and hard_score > 5:
+            self.last_score.config(text=f"Your score is {hard_score}Great job!!")
+            self.text_entry.config(state=DISABLED)
+        elif count == 0 and 0 < hard_score < 5:
+            self.last_score.config(text=f"Your score is {hard_score}.Good!")
+            self.text_entry.config(state=DISABLED)
+        elif count == 0 and hard_score == 0:
+            self.last_score.config(text=f"Your score is {hard_score}.Try again :(")
             self.text_entry.config(state=DISABLED)
 
     def update_score(self, points):

@@ -19,3 +19,4 @@ hard = ['Simplicity is the ultimate sophistication', 'Tough times never last but
         'What consumes your mind controls your life', 'Wanting to be someone else is a waste of who you are',
         'May your choices reflect your hopes,not your fears', 'White is not always light and black is not always dark',
         'Normality is a paved road:it’s comfortable to walk but no flowers grow']
+
